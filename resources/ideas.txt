@@ -1,0 +1,24 @@
+- Angular.js
+
+- Views
+    - Turn
+        - Choose Country
+        - Deploy Troops
+        - Trade in Cards
+        - Attack
+        - Reinforce
+    - Not Turn
+
+
+- Model
+    - Risk Game
+
+- Controller
+    - Updates the model based on new data
+
+d3 part controlled by d3
+
+user actions / views updated with angular
+
+
+
