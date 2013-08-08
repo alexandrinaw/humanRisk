@@ -240,30 +240,31 @@
                     totalTroops += countries[countryName]["troops"]; 
                 }
             };
-            $("#" +playerName).text(player + " -- cards: " + players[player]["cards"] + " -- troops: " + totalTroops); 
+            //$("#" +playerName).text(player + " -- cards: " + players[player]["cards"] + " -- troops: " + totalTroops); 
         };
         var actions = ["chose", "deployed", "attacked", "reinforced", "defeated", "spent", "neutral"];
         var pos = (actions.map(function(x) {return lastAction.indexOf(x);})); 
         var action = actions[pos.indexOf(d3.max(pos))];
         var lhs = lastAction.slice(0, lastAction.indexOf(action));
         var rhs = lastAction.slice(lastAction.indexOf(action) + action.length);
-        var parsedAction;
-        if (action == "attacked") {
-            actionAttacked(countries, lhs, rhs);
-        } else if (action == "deployed") {
-            actionDeployed(countries, lhs, rhs);
-        } else if (action == "reinforced") {
-            actionReinforced(countries, lhs, rhs);
-        } else if (action == "defeated") {
-            actionDefeated(countries, lhs, rhs);
-        } else if (action == "spent") {
-            actionSpent(countries, lhs, rhs);
-        } else if (action == "chose") {
-            actionChose(countries, lhs, rhs);
-        } else {
-            d3.select("#lastAction").text("something else happened");
-	}
-	d3.select("#asdf").text(lastAction); 
+        if (lastAction != "") {
+            if (action == "attacked") {
+                actionAttacked(countries, lhs, rhs);
+            } else if (action == "deployed") {
+                actionDeployed(countries, lhs, rhs);
+            } else if (action == "reinforced") {
+                actionReinforced(countries, lhs, rhs);
+            } else if (action == "defeated") {
+                actionDefeated(countries, lhs, rhs);
+            } else if (action == "spent") {
+                actionSpent(countries, lhs, rhs);
+            } else if (action == "chose") {
+                actionChose(countries, lhs, rhs);
+            } else {
+                //d3.select("#lastAction").text("something else happened");
+            }
+        //d3.select("#asdf").text(lastAction); 
+        }
     }
 
     var actionAttacked = function (countries, lhs, rhs) {
